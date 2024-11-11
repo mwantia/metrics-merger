@@ -1,0 +1,16 @@
+services:
+  metrics-merger:
+    build: ..
+    restart: unless-stopped
+    command: ["--config", "/config.yml"]
+    ports:
+      - 12345:12345
+    volumes:
+      - ../test/config.yml:/config.yml:ro
+    depends_on:
+      - node-exporter
+
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    restart: unless-stopped
+  

@@ -1,0 +1,6 @@
+address: :12345
+merge_label: foobar
+scrape_interval: 10s
+endpoints:
+  - name: node-exporter
+    address: http://node-exporter:9100/metrics
